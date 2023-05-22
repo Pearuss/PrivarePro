@@ -1,0 +1,76 @@
+.header {
+  height: 80px;
+  display: flex;
+
+  &__logo {
+    margin-top: 16px;
+  }
+
+  &__menuIcon {
+    font-size: small;
+    width: 30px;
+    color: white;
+    margin-left: 45px;
+    margin-right: 45px;
+  }
+  .searchBox {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    width: 720px;
+
+    background: transparent;
+
+    display: flex;
+    position: relative;
+    height: 56px;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+  }
+  &__searchInput {
+    flex: 1;
+
+    // padding: 8px 20px;
+    outline: none;
+    background: transparent;
+    color: white;
+    height: 100%;
+    font-size: 18px;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__searchIcon {
+    font-size: large;
+    width: 24px;
+    color: white;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    margin-right: 24px;
+  }
+  &__btnBuy {
+    padding: 8px 16px;
+    background: #2985d9;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  &__bellIcon {
+    font-size: small;
+    width: 24px;
+    color: white;
+  }
+}

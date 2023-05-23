@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // border-bottom: 0.01px solid rgb(77, 76, 76);
+  position: relative;
+  // border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   &__logo {
     margin-top: 16px;
@@ -72,5 +73,13 @@
     // font-size: small;
     width: 24px;
     color: white;
+  }
+
+  &__line {
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
   }
 }

@@ -1,4 +1,5 @@
 import Header from "./Layout/Header";
+import ShortVideo from "./Layout/ShortVideo";
 import Sidebar from "./Layout/Sidebar";
 import "./sass/app.scss";
 
@@ -6,7 +7,10 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Sidebar />
+      <div className="main">
+        <Sidebar />
+        <ShortVideo />
+      </div>
     </div>
   );
 }

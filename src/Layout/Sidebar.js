@@ -49,11 +49,22 @@ function Sidebar() {
     <nav className={true ? "sidebar show-sidebar" : "sidebar"}>
       <div className="menu">
         {menuItems.map(({ text, icon }) => (
-          <a className={true ? "menu__item menu__show" : "menu__item"} href="/">
-            <img className="menu__item-icon" src={icon} alt="" srcset="" />
+          <a
+            key={text}
+            className={true ? "menu__item menu__show" : "menu__item"}
+            href="/"
+          >
+            <img className="menu__item-icon" src={icon} alt="" />
             <p className="menu__des">{text}</p>
           </a>
         ))}
+        <div className="sidebar__line"></div>
+      </div>
+      <div className="login">
+        <p className="login__des">
+          Hãy đăng nhập để thích video, bình luận và đăng ký kênh.
+        </p>
+        <button className="login__button">Đăng nhập</button>
         <div className="sidebar__line"></div>
       </div>
       <div className="channels-pri">
@@ -102,8 +113,8 @@ function Sidebar() {
         <h3 className="service__title">Dịch vụ khác của Motion</h3>
         <ul className="service__options">
           {menuOptions.map(({ text, icon }) => (
-            <li className="service__option">
-              <img className="service__icon" src={icon} alt="" srcset="" />
+            <li key={text} className="service__option">
+              <img className="service__icon" src={icon} alt="" />
               <p className="service__des">{text}</p>
             </li>
           ))}
@@ -116,7 +127,7 @@ function Sidebar() {
             className="response__icon"
             src="/Question.svg"
             alt=""
-            srcset=""
+          
           />
           <p className="response__des">Trợ giúp</p>
         </button>
@@ -125,7 +136,7 @@ function Sidebar() {
             className="response__icon"
             src="/Response.svg"
             alt=""
-            srcset=""
+          
           />
           <p className="response__des">Gửi ý kiến phản hồi</p>
         </button>

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import LiveChat from "./LiveChat";
+import CommentDialog from "../Dialogs/CommentDialog";
 
 function ShortVideo() {
+  const [showComment, setShowComment] = useState(false);
   return (
     <div className="short-video">
       <div className="card">
@@ -18,6 +21,7 @@ function ShortVideo() {
             </div>
           </div>
         </div>
+        <LiveChat />
         <div className="feature">
           <div className="feature__group">
             <button className="feature__btn">
@@ -26,22 +30,25 @@ function ShortVideo() {
             <p className="feature__number">1,1 N</p>
           </div>
           <div className="feature__group">
-            <button className="feature__btn">
+            <button
+              className="feature__btn"
+              onClick={() => setShowComment(true)}
+            >
               <img src="/Comment.svg" alt="" />
             </button>
-            <p className="feature__number">1,1 N</p>
+            <p className="feature__number">123</p>
           </div>
           <div className="feature__group">
             <button className="feature__btn">
               <img src="/Save.svg" alt="" />
             </button>
-            <p className="feature__number">1,1 N</p>
+            <p className="feature__number">Lưu</p>
           </div>
           <div className="feature__group">
             <button className="feature__btn">
               <img src="/Share.svg" alt="" />
             </button>
-            <p className="feature__number">1,1 N</p>
+            <p className="feature__number">Chia sẻ</p>
           </div>
           <div className="feature__group">
             <button className="feature__btn">
@@ -50,6 +57,7 @@ function ShortVideo() {
           </div>
         </div>
       </div>
+      <CommentDialog open={showComment} setOpen={setShowComment} />
     </div>
   );
 }

@@ -3,23 +3,19 @@
   flex: 1;
   height: calc(100vh - 80px);
   display: flex;
-  //   align-items: center;
   justify-content: center;
   height: calc(100vh- 80px);
-  //   background-color: aliceblue;
   position: relative;
   padding-top: 40px;
-  //   padding-bottom: 60px;
-  //   background-color: red;
+  padding-bottom: 60px;
   max-height: 900px;
 }
 
 .card {
   display: flex;
   align-items: flex-end;
-  //   background-color: red;
   position: relative;
-  max-width: 603px;
+  // max-width: 603px;
 
   &__video {
     max-width: 507px;
@@ -92,5 +88,206 @@
   &__number {
     line-height: 22px;
     font-weight: 600;
+  }
+}
+
+.chat {
+  min-width: 460px;
+  background: $gray_bg;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  border-radius: 12px;
+
+  &__head {
+    height: 96px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__deleteIcon {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+  &__title {
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__box {
+    flex: 1;
+    padding: 0 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    position: relative;
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    &__message {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+    &__name {
+      @extend .user__message;
+      opacity: 0.6;
+      cursor: pointer;
+    }
+  }
+  &__message {
+    margin-top: auto;
+    display: flex;
+    padding: 20px;
+    position: relative;
+    gap: 20px;
+
+    img {
+      cursor: pointer;
+    }
+
+    &-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background-color: $primary_bg;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+    &-emo {
+      position: absolute;
+      right: 70px;
+      top: 31px;
+    }
+  }
+}
+
+.box-comment {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  &__head {
+    display: flex;
+    align-items: center;
+    margin: 44px 40px 46px 40px;
+    img {
+      cursor: pointer;
+    }
+  }
+  &__title {
+    font-weight: 500;
+    line-height: 1.4;
+    font-size: 24px;
+    span {
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.6);
+      margin-left: 12px;
+    }
+  }
+  &__sortIcon {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+  &__line {
+    @extend .chat__line;
+  }
+
+  &__box {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    margin: 0 40px;
+  }
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.comment {
+  display: flex;
+  gap: 16px;
+  &__img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+  }
+  // &__mid-part {
+  // }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+  }
+  &__author {
+    font-weight: 700;
+    line-height: 21px;
+    cursor: pointer;
+  }
+  &__text {
+    line-height: 22.4px;
+  }
+  &__sub {
+    display: flex;
+    column-gap: 24px;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  &__reply-btn {
+    cursor: pointer;
+  }
+  &__show-reply {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .replies {
+    @extend .comment__content;
+    row-gap: 16px;
+    margin-top: 16px;
   }
 }

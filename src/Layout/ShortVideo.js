@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import LiveChat from "./LiveChat";
 import CommentDialog from "../Dialogs/CommentDialog";
+import ShareDialog from "../Dialogs/ShareDialog";
 
 function ShortVideo() {
   const [showComment, setShowComment] = useState(false);
+  const [showShare, setShowShare] = useState(false);
   return (
-    <div className="short-video">
+    <div className="short-video container">
       <div className="card">
         <div className="card__video">
           <img className="card__img" src="/VideoDemo.png" alt="" />
@@ -45,7 +47,10 @@ function ShortVideo() {
             <p className="feature__number">Lưu</p>
           </div>
           <div className="feature__group">
-            <button className="feature__btn">
+            <button
+              className="feature__btn"
+              onClick={() => setShowShare(true)}
+            >
               <img src="/Share.svg" alt="" />
             </button>
             <p className="feature__number">Chia sẻ</p>
@@ -58,6 +63,7 @@ function ShortVideo() {
         </div>
       </div>
       <CommentDialog open={showComment} setOpen={setShowComment} />
+      <ShareDialog open={showShare} setOpen={setShowShare} />
     </div>
   );
 }

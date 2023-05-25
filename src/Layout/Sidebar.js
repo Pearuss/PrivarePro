@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Sidebar() {
-  const [showMenu, setshowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const menuItems = [
     {
       text: "Dành cho bạn",
@@ -13,7 +13,7 @@ function Sidebar() {
     },
     {
       text: "Trực tiếp",
-      icon: "icons/Love.svg",
+      icon: "icons/Live.svg",
     },
     {
       text: "Yêu thích",

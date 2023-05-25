@@ -1,3 +1,4 @@
+import Channel from "./Layout/Channel";
 import Header from "./Layout/Header";
 import ShortVideo from "./Layout/ShortVideo";
 import Sidebar from "./Layout/Sidebar";
@@ -9,7 +10,9 @@ function App() {
       <Header />
       <div className="main">
         <Sidebar />
-        <ShortVideo />
+        <div className="main__page">
+          <Channel />
+        </div>
       </div>
     </div>
   );

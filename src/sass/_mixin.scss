@@ -22,6 +22,7 @@
       background: $background-color;
     }
   }
+
   // &::-webkit-scrollbar-track-piece:end {
   //   margin-bottom: 50px;
   // }
@@ -36,4 +37,10 @@
     scrollbar-face-color: $foreground-color;
     scrollbar-track-color: $background-color;
   }
+}
+
+@mixin replace-font($fontWeigh, $fontSize, $lineHeight: 24px) {
+  font-weight: $fontWeigh;
+  font-size: $fontSize;
+  line-height: $lineHeight;
 }

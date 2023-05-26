@@ -6,6 +6,7 @@ body {
   line-height: 24px;
   font-size: 16px;
   color: white;
+  background: $primary_bg;
 }
 .wrapper {
   max-width: 1920px;
@@ -23,7 +24,34 @@ body {
   }
 }
 
+.btn {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 4px 12px;
+  border: 0;
+  outline: none;
+  border-radius: 12px;
+  cursor: pointer;
+  &--white {
+    background-color: white;
+    color: black;
+  }
+  &--blue {
+    color: white;
+    background-color: $blue_btn;
+  }
+}
+
 .container {
   max-width: 1634px;
   margin: 0 83px;
+}
+
+.common-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
+  padding: 44px 40px;
 }

@@ -15,7 +15,7 @@ function ShortVideo() {
             <div className="card__user">
               <img className="card__user-avatar" src="/Avatar.png" alt="" />
               <div className="card__user-name">finDmusic</div>
-              <button className="card__user-button">Theo dõi</button>
+              <button className=".btn .btn--white">Theo dõi</button>
             </div>
             <div className="card__des">
               Ngủ một mình x Cô đơn trên sofa (Mashup Ngủ trên sofa) #short
@@ -47,10 +47,7 @@ function ShortVideo() {
             <p className="feature__number">Lưu</p>
           </div>
           <div className="feature__group">
-            <button
-              className="feature__btn"
-              onClick={() => setShowShare(true)}
-            >
+            <button className="feature__btn" onClick={() => setShowShare(true)}>
               <img src="/Share.svg" alt="" />
             </button>
             <p className="feature__number">Chia sẻ</p>

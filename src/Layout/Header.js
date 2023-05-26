@@ -23,7 +23,7 @@ function Header() {
         <SearchOutlinedIcon className="header__searchIcon" />
       </div>
       <div className="header__right">
-        <button className="header__btnBuy">Mua gói</button>
+        <button className="header__btnBuy btn btn--blue">Mua gói</button>
         <NotificationsOutlinedIcon className="header__bellIcon" />
         <img src="./Ellipse20.png" alt="" />
       </div>

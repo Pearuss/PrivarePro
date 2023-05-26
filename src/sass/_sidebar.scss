@@ -75,9 +75,8 @@
     border-radius: 24px;
     color: white;
     background-color: $blue_btn;
-    font-weight: 600;
     border: none;
-    font-size: 16px;
+    @include replace-font(600, 16px);
   }
 }
 
@@ -85,9 +84,8 @@
   width: 100%;
 
   &__title {
-    font-size: 16px;
-    font-weight: 500;
     margin-bottom: 16px;
+    @include replace-font(500, 16px);
   }
   .channel {
     display: flex;
@@ -106,16 +104,14 @@
       font-weight: 500;
     }
     &__follow {
-      font-weight: 500;
-      font-size: 14px;
+      @include replace-font(500, 14px);
       color: rgba(255, 255, 255, 0.4);
     }
   }
 
   &__view {
-    font-size: 14px;
     color: #ec2227;
-    font-weight: 500;
+    @include replace-font(500, 14px);
     margin-top: 12px;
     margin-bottom: 16px;
     cursor: pointer;
@@ -123,8 +119,7 @@
 }
 .discovery {
   &__title {
-    font-size: 16px;
-    font-weight: 500;
+    @include replace-font(500, 16px);
     margin-bottom: 16px;
   }
   &__tags {
@@ -138,10 +133,10 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     border: none;
-    font-size: 14px;
-    font-weight: 500;
     list-style: none;
     cursor: pointer;
+    @include replace-font(500, 14px);
+
     &:hover {
       opacity: 0.8;
     }
@@ -150,8 +145,7 @@
 .service {
   width: 100%;
   &__title {
-    font-size: 16px;
-    font-weight: 500;
+    @include replace-font(500, 16px);
     margin-bottom: 16px;
   }
   &__options {
@@ -167,8 +161,7 @@
     padding: 4px 12px;
   }
   &__des {
-    font-size: 14px;
-    font-weight: 500;
+    @include replace-font(500, 14px);
     margin-left: 14px;
   }
 }
@@ -201,9 +194,7 @@
   width: 100%;
   color: rgba(255, 255, 255, 0.6);
   &__title {
-    font-weight: 600;
-    font-size: 14px;
-    // color: rgba(255, 255, 255, 0.6);
+    @include replace-font(600, 14px);
   }
   &__des {
     line-height: 20px;
@@ -213,9 +204,7 @@
     }
   }
   &__number {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    @include replace-font(500, 14px, 20px);
     span {
       font-weight: 700;
     }
@@ -224,9 +213,7 @@
     display: flex;
     gap: 8px;
     align-items: center;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
+    @include replace-font(700, 14px, 20px);
   }
   &__icon {
     cursor: pointer;

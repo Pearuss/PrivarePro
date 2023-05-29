@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Sidebar() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   const menuItems = [
     {
       text: "Dành cho bạn",

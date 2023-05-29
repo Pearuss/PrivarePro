@@ -1,12 +1,55 @@
-import React from "react";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import React, { useRef } from "react";
+import { useClickOutside } from "@react-hookz/web/esm/useClickOutside";
+import useToggle from "../hooks/useToggle";
 
 function Header() {
+  const notificationRef = useRef(null);
+  const profileRef = useRef(null);
+  const searchRef = useRef(null);
+
+  const [showNotification, setShowNotification] = useToggle(false);
+  const [showProfile, setShowProfile] = useToggle(false);
+  const [showSearchBox, setShowSearchBox] = useToggle(false);
+
+  useClickOutside(notificationRef, () => {
+    setShowNotification();
+  });
+  useClickOutside(profileRef, () => {
+    setShowProfile();
+  });
+  useClickOutside(searchRef, () => {
+    setShowSearchBox();
+  });
+
+  const menuProfile = [
+    {
+      text: "Xem hồ sơ",
+      icon: "profile-menu/profile.svg",
+    },
+    {
+      text: "Gói cước",
+      icon: "profile-menu/package.svg",
+    },
+    {
+      text: "Trợ giúp",
+      icon: "profile-menu/help.svg",
+    },
+    {
+      text: "Gửi ý kiến phản hồi",
+      icon: "profile-menu/response.svg",
+    },
+    {
+      text: "Đổi mật khẩu",
+      icon: "profile-menu/password.svg",
+    },
+    {
+      text: "Đăng xuất",
+      icon: "profile-menu/logout.svg",
+    },
+  ];
   return (
     <header className="header">
-      <MenuOutlinedIcon className="header__menuIcon" />
+      <img src="Menu.svg" alt="menu icon" className="header__menuIcon" />
       <img
         className="header__logo"
         src="./Logo.png"
@@ -14,54 +57,116 @@ function Header() {
         width={154}
         height={56}
       />
-      <div className="searchBox">
+      <div className="searchBox" onClick={setShowSearchBox}>
         <input
           type="text"
           className="header__searchInput"
           placeholder="Tìm kiếm"
         />
-        <SearchOutlinedIcon className="header__searchIcon" />
+        <img
+          src="Search.svg"
+          alt="search icon"
+          className="header__searchIcon"
+        />
+        {showSearchBox && (
+          <div ref={searchRef} className="search-box">
+            <div className="search-box__history">
+              {[1, 2, 3, 4, 5].map((item) => (
+                <div key={item} className="search-box__item">
+                  <img src="/Clock.svg" alt="clock icon" />
+                  <p className="search-box__text">Ngủ một mình</p>
+                  <span className="search-box__delete">Xóa</span>
+                </div>
+              ))}
+            </div>
+            <p className="search-box__trend-title">Top xu hướng</p>
+            <div className="search-box__trend">
+              {[1, 2, 3, 4, 5].map((item) => (
+                <div key={item} className="search-box__item">
+                  <img src="/Trend.svg" alt="trend icon" />
+                  <p className="search-box__text">Mixi</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <div className="header__right">
         <button className="header__btnBuy btn btn--blue">Mua gói</button>
-        <img src="/bell.svg" alt="" className="header__bellIcon" />
-        <img src="./Ellipse20.png" alt="" />
-        <div className="notification">
-          <div className="notification__header">
-            <div className="notification__title">Thông báo</div>
-            <img
-              src="/ThreeDot.svg"
-              alt=""
-              className="notification__view-all"
-            />
-          </div>
-          <div className="notification__list">
-            <div className="notification__item">
-              <div className="notification__viewed"></div>
+        <img
+          src="/bell.svg"
+          alt=""
+          className="header__bellIcon"
+          onClick={setShowNotification}
+        />
+        {showNotification && (
+          <div ref={notificationRef} className="notification">
+            <div className="notification__header">
+              <div className="notification__title">Thông báo</div>
               <img
-                src="Avatar.png"
+                src="/view-all.svg"
                 alt=""
-                className="notification__user-avatar"
-              />
-              <div className="notification__content">
-                <h4>Tiêu đề video không giới hạn tối đa dòng</h4>
-                <p>3 giờ trước</p>
-              </div>
-              <img
-                src="User.png"
-                alt=""
-                width={80}
-                height={45}
-                className="notification__post"
-              />
-              <img
-                src="ThreeDot.svg"
-                alt=""
-                className="notification__three-dot"
+                className="notification__view-all"
+                style={{ cursor: "pointer" }}
               />
             </div>
+            <div className="notification__list">
+              {[1, 2, 3, 4, 5].map((item) => (
+                <div key={item} className="notification__item">
+                  <div className="notification__viewed"></div>
+                  <img
+                    src="Avatar.png"
+                    alt=""
+                    className="notification__user-avatar"
+                    width={48}
+                    height={48}
+                  />
+                  <div className="notification__content">
+                    <h4>Tiêu đề video không giới hạn tối đa dòng</h4>
+                    <p>3 giờ trước</p>
+                  </div>
+                  <img
+                    src="VideoDemo.png"
+                    alt=""
+                    className="notification__post"
+                  />
+                  <img
+                    src="ThreeDot.svg"
+                    alt=""
+                    className="notification__three-dot"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+        <img
+          onClick={setShowProfile}
+          style={{ cursor: "pointer" }}
+          src="./Ellipse20.png"
+          alt=""
+        />
+        {showProfile && (
+          <div ref={profileRef} className="profile-menu">
+            <div className="profile-menu__header">
+              <img
+                src="./Ellipse20.png"
+                alt=""
+                className="profile-menu__avatar"
+                style={{ cursor: "pointer" }}
+              />
+              <div className="profile-menu__username">Hi, Thế Anh</div>
+            </div>
+            <div className="profile-menu__list">
+              {menuProfile.map((item) => (
+                <div key={item.text} className="profile-menu__item">
+                  <img src={item.icon} alt="" className="profile-menu__icon" />
+                  <p className="profile-menu__text">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <div className="header__line"></div>
     </header>

@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LiveChat from "./LiveChat";
 import CommentDialog from "../Dialogs/CommentDialog";
 import ShareDialog from "../Dialogs/ShareDialog";
+import { useKeyboardEvent } from "@react-hookz/web/esm/useKeyboardEvent";
 
 function ShortVideo() {
   const [showComment, setShowComment] = useState(false);
   const [showShare, setShowShare] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("keydown", function (e) {
+      if (e.keyCode == 32 && e.target == document.body) {
+        e.preventDefault();
+      }
+    });
+  }, []);
+
+  useKeyboardEvent(
+    true,
+    (ev) => {
+      console.log(ev.key);
+      if (ev.key === " ") console.log("space keyboard");
+      return;
+    },
+    [],
+    { eventOptions: { passive: true } }
+  );
   return (
-    <div className="short-video container">
+    <div className="short-video ">
       <div className="card">
         <div className="card__video">
           <img className="card__img" src="/VideoDemo.png" alt="" />
@@ -58,6 +78,10 @@ function ShortVideo() {
             </button>
           </div>
         </div>
+      </div>
+      <div className="short-video__redirect-btn">
+        <img src="/ArrowUp.svg" alt="" />
+        <img src="/ArrowLight.svg" alt="" />
       </div>
       <CommentDialog open={showComment} setOpen={setShowComment} />
       <ShareDialog open={showShare} setOpen={setShowShare} />

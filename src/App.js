@@ -11,7 +11,7 @@ function App() {
       <div className="main">
         <Sidebar />
         <div className="main__page">
-          <Channel />
+          <ShortVideo />
         </div>
       </div>
     </div>

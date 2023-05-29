@@ -1,10 +1,32 @@
 .short-video {
-  width: 100%;
+  // width: 100%;
   max-height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   position: relative;
   padding-bottom: 60px;
+
+  &__redirect-btn {
+    background-color: rgba(255, 255, 255, 0.08);
+    width: 80px;
+    height: 160px;
+    position: absolute;
+    right: 40px;
+    top: calc(50% - 40px);
+    transform: translateY(-50%);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+
+    img {
+      cursor: pointer;
+      &:last-child {
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
 
 .card {
@@ -48,34 +70,43 @@
     font-size: 20px;
     line-height: 28px;
   }
-}
 
-.feature {
-  margin-left: 15px;
-  padding: 0 12.5px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  &__group {
+  .feature {
+    margin-left: 15px;
+    padding: 0 12.5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 24px;
+    &__group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: none;
+    }
+    &__number {
+      @include replace-font(600, 16px, 22px);
+    }
+    @media screen and (max-width: 1535px) {
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+    }
   }
-  &__btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: none;
-  }
-  &__number {
-    @include replace-font(600, 16px, 22px);
+
+  @media screen and (max-width: 1535px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
-
 .chat {
   min-width: 460px;
   background: $gray_bg;
@@ -114,7 +145,7 @@
 
   &__box {
     flex: 1;
-    padding: 0 20px;
+    padding: 0 20px 10px 20px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -160,6 +191,12 @@
       top: 31px;
     }
   }
+
+  @media screen and (max-width: 1535px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
 }
 
 .box-comment {
@@ -198,7 +235,7 @@
     padding: 0 40px;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    @include scrollbar(16px, rgba(255, 255, 255, 0.2), $primary_bg);
+    @include scrollbar(rgba(255, 255, 255, 0.2), $primary_bg);
   }
   &__box {
     flex: 1;

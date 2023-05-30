@@ -24,6 +24,12 @@ body {
   }
 }
 
+
+
+.container {
+  max-width: 1634px;
+  margin: 0 83px;
+}
 .btn {
   display: inline-block;
   font-size: 16px;
@@ -38,20 +44,23 @@ body {
     background-color: white;
     color: black;
   }
+  &--gray {
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+  }
   &--blue {
     color: white;
     background-color: $blue_btn;
   }
-}
-
-.container {
-  max-width: 1634px;
-  margin: 0 83px;
+  &--red {
+    color: white;
+    background-color: $red_bg;
+  }
 }
 
 .common-dialog {
   display: flex;
   flex-direction: column;
-  gap: 40px; 
+  gap: 40px;
   padding: 44px 40px;
 }

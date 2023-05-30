@@ -83,7 +83,7 @@ export default function ShareDialog({ open, setOpen }) {
             value={"https://mobion.vn/shortkdjagaiqdjto3t?fea=s"}
             disabled
           />
-          <button>Sao chép</button>
+          <button className="btn btn--blue">Sao chép</button>
         </div>
       </div>
     </Dialog>

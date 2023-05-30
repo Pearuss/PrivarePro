@@ -49,7 +49,7 @@ export const getComments = async () => {
       createdAt: "2021-08-16T23:00:33.010+02:00",
     },
     {
-      id: "7",
+      id: "8",
       body: "Giọng hát, thần thái, nhan sắc quá ổn luôn!",
       username: "Test",
       userId: "3",
@@ -57,7 +57,7 @@ export const getComments = async () => {
       createdAt: "2021-08-16T23:00:33.010+02:00",
     },
     {
-      id: "7",
+      id: "9",
       body: "Giọng hát, thần thái, nhan sắc quá ổn luôn!",
       username: "Test",
       userId: "3",

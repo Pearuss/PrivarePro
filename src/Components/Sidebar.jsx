@@ -1,22 +1,27 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [showMenu, setShowMenu] = useState(true);
   const menuItems = [
     {
       text: "Dành cho bạn",
+      url: "/danh-cho-ban",
       icon: "icons/Home.svg",
     },
     {
       text: "Người theo dõi",
+      url: "/dang-theo-doi",
       icon: "icons/People.svg",
     },
     {
       text: "Trực tiếp",
+      url: "/live",
       icon: "icons/Live.svg",
     },
     {
       text: "Yêu thích",
+      url: "/yeu-thich",
       icon: "icons/Love.svg",
     },
   ];
@@ -49,15 +54,15 @@ function Sidebar() {
   return (
     <nav className={showMenu ? "sidebar show-sidebar" : "sidebar"}>
       <div className="menu">
-        {menuItems.map(({ text, icon }) => (
-          <a
+        {menuItems.map(({ text, url, icon }) => (
+          <Link
+            to={url}
             key={text}
             className={showMenu ? "menu__item menu__show" : "menu__item"}
-            href="/"
           >
             <img className="menu__item-icon" src={icon} alt="" />
-            <p className="menu__des">{text}</p>
-          </a>
+              <p className="menu__des">{text}</p>
+          </Link>
         ))}
         <div className="sidebar__line"></div>
       </div>

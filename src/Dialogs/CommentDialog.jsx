@@ -1,8 +1,8 @@
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
-import Comments from "../Layout/Comments/Comments";
-import CommentForm from "../Layout/Comments/CommentForm";
+import Comments from "../Components/Comments/Comments";
+import CommentForm from "../Components/Comments/CommentForm";
 import { Tooltip } from "@mui/material";
 
 const Transition = React.forwardRef(function Transition(props, ref) {

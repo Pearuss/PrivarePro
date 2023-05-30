@@ -1,11 +1,11 @@
 import React from "react";
 
-function LiveChat() {
+function LiveChat({ setShowLiveChat }) {
   return (
     <div className="chat">
       <div className="chat__head">
         <h3 className="chat__title">Trò chuyện trực tuyến</h3>
-        <img src="/Delete.svg" alt="" className="chat__deleteIcon" />
+        <img src="/Delete.svg" alt="" className="chat__deleteIcon" onClick={() => setShowLiveChat(false)} />
         <div className="chat__line"></div>
       </div>
       <div className="chat__box">

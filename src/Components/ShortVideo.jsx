@@ -3,10 +3,19 @@ import LiveChat from "./LiveChat";
 import CommentDialog from "../Dialogs/CommentDialog";
 import ShareDialog from "../Dialogs/ShareDialog";
 import { useKeyboardEvent } from "@react-hookz/web/esm/useKeyboardEvent";
+import useToggle from "../hooks/useToggle";
+import { useLocation } from "react-router-dom";
+import ShortStored from "./ShortStored";
 
 function ShortVideo() {
   const [showComment, setShowComment] = useState(false);
+  const [showLiveChat, setShowLiveChat] = useState(false);
   const [showShare, setShowShare] = useState(false);
+  const [followed, setFollowed] = useToggle(false);
+
+  const location = useLocation();
+  const isLive = location.pathname === "/live" || false;
+  const isLove = location.pathname === "/yeu-thich" || false;
 
   useEffect(() => {
     window.addEventListener("keydown", function (e) {
@@ -31,11 +40,26 @@ function ShortVideo() {
       <div className="card">
         <div className="card__video">
           <img className="card__img" src="/VideoDemo.png" alt="" />
+          <div className="card__header">
+            {isLive && (
+              <div className="live-info">
+                <button className="btn btn--red">TRỰC TIẾP</button>
+                <img src="person-live.svg" alt="person view live" />
+                <span>725</span>
+              </div>
+            )}
+            <img src="muted.svg" alt="" className="card__speaker" />
+          </div>
           <div className="card__info">
             <div className="card__user">
               <img className="card__user-avatar" src="/Avatar.png" alt="" />
               <div className="card__user-name">finDmusic</div>
-              <button className=".btn .btn--white">Theo dõi</button>
+              <button
+                className={followed ? "btn btn--gray" : "btn btn--white"}
+                onClick={setFollowed}
+              >
+                {followed ? "Đã theo dõi" : "Theo dõi"}
+              </button>
             </div>
             <div className="card__des">
               Ngủ một mình x Cô đơn trên sofa (Mashup Ngủ trên sofa) #short
@@ -43,7 +67,10 @@ function ShortVideo() {
             </div>
           </div>
         </div>
-        <LiveChat />
+        {isLive && showLiveChat && (
+          <LiveChat setShowLiveChat={setShowLiveChat} />
+        )}
+        {isLove && <ShortStored />}
         <div className="feature">
           <div className="feature__group">
             <button className="feature__btn">
@@ -54,7 +81,9 @@ function ShortVideo() {
           <div className="feature__group">
             <button
               className="feature__btn"
-              onClick={() => setShowComment(true)}
+              onClick={() => {
+                isLive ? setShowLiveChat(true) : setShowComment(true);
+              }}
             >
               <img src="/Comment.svg" alt="" />
             </button>

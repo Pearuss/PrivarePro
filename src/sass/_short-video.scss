@@ -1,6 +1,6 @@
 .short-video {
   // width: 100%;
-  max-height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   position: relative;
@@ -57,6 +57,7 @@
   &__video {
     min-width: 507px;
     height: 100%;
+    min-height: 900px;
     // height: auto;
   }
 

@@ -74,7 +74,7 @@
     }
     &__trend-title {
       margin: 16px;
-      color: #8F9094;
+      color: #8f9094;
     }
   }
 
@@ -176,6 +176,10 @@
       z-index: 2;
       min-width: 226px;
 
+      a {
+        color: white;
+      }
+
       &__header {
         padding: 16px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -211,5 +215,25 @@
     position: absolute;
     bottom: 0;
     background: rgba(255, 255, 255, 0.1);
+  }
+}
+.password-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  &__info {
+    display: flex;
+  }
+  &__title {
+    min-width: 200px;
+    @include replace-font(500, 16px, 22px);
+  }
+  &__input {
+    padding: 9px 20px;
+    background-color: #1a1d2a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    width: 100%;
+    color: white;
   }
 }

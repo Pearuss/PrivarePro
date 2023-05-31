@@ -1,12 +1,19 @@
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
+import { toast } from "react-toastify";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CommentDialog({ open, setOpen, children, submitText }) {
+export default function CommonDialog({
+  open,
+  setOpen,
+  title,
+  submitText,
+  children,
+}) {
   const handleClose = () => {
     setOpen(false);
   };
@@ -29,13 +36,23 @@ export default function CommentDialog({ open, setOpen, children, submitText }) {
     >
       <div className="common-dialog">
         <div className="common-dialog__header">
-          <div className="common-dialog__title"></div>
+          <div className="common-dialog__title">{title}</div>
           <img src="/DeleteIcon.svg" alt="" onClick={handleClose} />
         </div>
         {children}
         <div className="common-dialog__footer">
-          <button className="btn btn--blue">Hủy</button>
-          <button className="btn btn--blue">{submitText}</button>
+          <button className="btn btn--gray">Hủy</button>
+          <button
+            className="btn btn--blue"
+            onClick={() => {
+              setOpen(false);
+              toast.success("Hồ sơ đã cập nhật thành công.", {
+                position: "top-right",
+              });
+            }}
+          >
+            {submitText}
+          </button>
         </div>
       </div>
     </Dialog>

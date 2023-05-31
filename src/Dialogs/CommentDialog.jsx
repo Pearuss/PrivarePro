@@ -36,9 +36,13 @@ export default function CommentDialog({ open, setOpen }) {
             Bình luận<span>124</span>
           </div>
           <Tooltip
-            title="Bình luận hàng đầu"
+            title={
+              <div className="box-comment__tooltip">
+                <p>Bình luận hàng đầu</p>
+                <p>Mới nhất xếp trước</p>
+              </div>
+            }
             placement="bottom-start"
-            sx={{ background: "#090b12" }}
           >
             <img src="/SortIcon.svg" alt="" className="box-comment__sortIcon" />
           </Tooltip>

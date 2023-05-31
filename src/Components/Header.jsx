@@ -1,6 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useClickOutside } from "@react-hookz/web/esm/useClickOutside";
 import useToggle from "../hooks/useToggle";
+import { Link } from "react-router-dom";
+import CommonDialog from "../Dialogs/CommonDialog";
+import ChangePassword from "./ChangePassword";
 
 function Header() {
   const notificationRef = useRef(null);
@@ -10,6 +13,7 @@ function Header() {
   const [showNotification, setShowNotification] = useToggle(false);
   const [showProfile, setShowProfile] = useToggle(false);
   const [showSearchBox, setShowSearchBox] = useToggle(false);
+  const [showChangePassword, setShowChangePassword] = useState(false);
 
   useClickOutside(notificationRef, () => {
     setShowNotification();
@@ -25,26 +29,32 @@ function Header() {
     {
       text: "Xem hồ sơ",
       icon: "profile-menu/profile.svg",
+      url: "/profile",
     },
     {
       text: "Gói cước",
       icon: "profile-menu/package.svg",
+      url: "/profile",
     },
     {
       text: "Trợ giúp",
       icon: "profile-menu/help.svg",
+      url: "/profile",
     },
     {
       text: "Gửi ý kiến phản hồi",
       icon: "profile-menu/response.svg",
+      url: "/profile",
     },
     {
       text: "Đổi mật khẩu",
       icon: "profile-menu/password.svg",
+      url: "/none",
     },
     {
       text: "Đăng xuất",
       icon: "profile-menu/logout.svg",
+      url: "/profile",
     },
   ];
   return (
@@ -158,17 +168,48 @@ function Header() {
               <div className="profile-menu__username">Hi, Thế Anh</div>
             </div>
             <div className="profile-menu__list">
-              {menuProfile.map((item) => (
-                <div key={item.text} className="profile-menu__item">
-                  <img src={item.icon} alt="" className="profile-menu__icon" />
-                  <p className="profile-menu__text">{item.text}</p>
-                </div>
-              ))}
+              {menuProfile.map((item) =>
+                item.url === "/none" ? (
+                  <div
+                    key={item.text}
+                    className="profile-menu__item"
+                    onClick={() => {
+                      setShowChangePassword(true);
+                    }}
+                  >
+                    <img
+                      src={item.icon}
+                      alt=""
+                      className="profile-menu__icon"
+                    />
+                    <p className="profile-menu__text">{item.text}</p>
+                  </div>
+                ) : (
+                  <Link to={item.url}>
+                    <div key={item.text} className="profile-menu__item">
+                      <img
+                        src={item.icon}
+                        alt=""
+                        className="profile-menu__icon"
+                      />
+                      <p className="profile-menu__text">{item.text}</p>
+                    </div>
+                  </Link>
+                )
+              )}
             </div>
           </div>
         )}
       </div>
       <div className="header__line"></div>
+      <CommonDialog
+        open={showChangePassword}
+        setOpen={setShowChangePassword}
+        title="Đổi mật khẩu"
+        submitText="Đổi mật khẩu"
+      >
+        <ChangePassword />
+      </CommonDialog>
     </header>
   );
 }

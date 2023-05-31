@@ -24,8 +24,6 @@ body {
   }
 }
 
-
-
 .container {
   max-width: 1634px;
   margin: 0 83px;
@@ -63,4 +61,31 @@ body {
   flex-direction: column;
   gap: 40px;
   padding: 44px 40px;
+  color: white;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+  }
+
+  &__title {
+    @include replace-font(500, 24px, 33.6px);
+  }
+  &__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+    button {
+      min-width: 88px;
+    } 
+  }
+}
+
+.disabled-link {
+  pointer-events: none;
 }

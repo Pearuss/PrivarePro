@@ -2,7 +2,11 @@
 
 import CommentForm from "./CommentForm";
 import useToggle from "../../hooks/useToggle";
-import { KeyboardArrowDownOutlined, KeyboardArrowUpOutlined} from "@mui/icons-material/";
+import {
+  KeyboardArrowDownOutlined,
+  KeyboardArrowUpOutlined,
+} from "@mui/icons-material/";
+import { Tooltip } from "@mui/material";
 
 const Comment = ({
   comment,
@@ -115,8 +119,23 @@ const Comment = ({
         )} */}
         </div>
         <div className="comment__actions">
-          <img src="/TheeDot.svg" alt="" />
-          <img src="/Liked.svg" alt="" />
+          <Tooltip
+            title={
+              <div className="comment__actions__deleteComment">
+                <img src="bin.svg" alt="" />
+                <span>Xóa bình luận</span>
+              </div>
+            }
+            placement="bottom-start"
+          >
+            <img
+              src="/ThreeDot.svg"
+              alt=""
+              className="comment__actions-option"
+            />
+          </Tooltip>
+
+          <img src="Liked.svg" alt="" />
           <span>12</span>
         </div>
       </div>

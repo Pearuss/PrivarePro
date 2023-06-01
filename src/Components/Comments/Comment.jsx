@@ -120,6 +120,16 @@ const Comment = ({
         </div>
         <div className="comment__actions">
           <Tooltip
+            componentsProps={{
+              tooltip: {
+                sx: {
+                  bgcolor: "#1A1D2A",
+                  "& .MuiTooltip-arrow": {
+                    color: "#1A1D2A",
+                  },
+                },
+              },
+            }}
             title={
               <div className="comment__actions__deleteComment">
                 <img src="bin.svg" alt="" />

@@ -5,11 +5,16 @@ function LiveChat({ setShowLiveChat }) {
     <div className="chat">
       <div className="chat__head">
         <h3 className="chat__title">Trò chuyện trực tuyến</h3>
-        <img src="/Delete.svg" alt="" className="chat__deleteIcon" onClick={() => setShowLiveChat(false)} />
+        <img
+          src="/Delete.svg"
+          alt=""
+          className="chat__deleteIcon"
+          onClick={() => setShowLiveChat(false)}
+        />
         <div className="chat__line"></div>
       </div>
       <div className="chat__box">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
           <div key={item} className="user">
             <img src="/Avatar.png" alt="" className="user__avatar" />
             <div className="user__name">Ann</div>

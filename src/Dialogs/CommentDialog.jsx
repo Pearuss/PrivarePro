@@ -36,6 +36,16 @@ export default function CommentDialog({ open, setOpen }) {
             Bình luận<span>124</span>
           </div>
           <Tooltip
+            componentsProps={{
+              tooltip: {
+                sx: {
+                  bgcolor: "#151822",
+                  "& .MuiTooltip-arrow": {
+                    color: "#151822",
+                  },
+                },
+              },
+            }}
             title={
               <div className="box-comment__tooltip">
                 <p>Bình luận hàng đầu</p>

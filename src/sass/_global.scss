@@ -1,5 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
+
+.test {
+  width: 100%;
+  margin-top: 300px;
+  min-height: 400px;
+  // background-color: red;
+  margin-left: 50vw;
+  transform: translateX(-50%);
+  background-color: red;
+  // img {
+  //   width: 200px;
+  //   height: 300px;
+  //   object-fit: cover;
+  // }
+}
+
+.owl-dots {
+  display: none;
+}
+
+.owl-carousel {
+  transform: rotate(90deg);
+  // background-color: red;
+
+  .item {
+    transform: rotate(-90deg);
+  }
+}
+
 body {
   // overflow-x: hidden;
   font-family: $primary_font;

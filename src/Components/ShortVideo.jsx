@@ -9,6 +9,8 @@ import ShortStored from "./ShortStored";
 import VideoJS from "./VideoJS";
 import videojs from "video.js";
 
+import OwlCarousel from "react-owl-carousel2";
+
 function ShortVideo() {
   const [showComment, setShowComment] = useState(false);
   const [showLiveChat, setShowLiveChat] = useState(false);
@@ -18,6 +20,13 @@ function ShortVideo() {
   const location = useLocation();
   const isLive = location.pathname === "/live" || false;
   const isLove = location.pathname === "/yeu-thich" || false;
+
+  const options = {
+    items: 1,
+    nav: true,
+    rewind: true,
+    autoplay: true,
+  };
 
   //
 
@@ -71,84 +80,100 @@ function ShortVideo() {
   );
   return (
     <div className="short-video ">
-      {[1, 2, 3, 4].map((item) => (
-        <div className="card" key={item}>
-          <div className="card__video">
-            <div className="player">
-              <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-            </div>
-            <div className="card__header">
-              {isLive && (
-                <div className="live-info">
-                  <button className="btn btn--red">TRỰC TIẾP</button>
-                  <img src="person-live.svg" alt="person view live" />
-                  <span>725</span>
+      <div className="test">
+        <OwlCarousel options={options}>
+          {[1, 2, 3, 4].map((item) => (
+            <div className="card item" key={item}>
+              <div className="card__video">
+                <div className="player">
+                  <VideoJS
+                    options={videoJsOptions}
+                    onReady={handlePlayerReady}
+                  />
                 </div>
+                <div className="card__header">
+                  {isLive && (
+                    <div className="live-info">
+                      <button className="btn btn--red">TRỰC TIẾP</button>
+                      <img src="person-live.svg" alt="person view live" />
+                      <span>725</span>
+                    </div>
+                  )}
+                  {/* <img src="muted.svg" alt="" className="card__speaker" /> */}
+                </div>
+                {false && (
+                  <div className="card__info">
+                    <div className="card__user">
+                      <img
+                        className="card__user-avatar"
+                        src="/Avatar.png"
+                        alt=""
+                      />
+                      <div className="card__user-name">finDmusic</div>
+                      <button
+                        className={
+                          followed ? "btn btn--gray" : "btn btn--white"
+                        }
+                        onClick={setFollowed}
+                      >
+                        {followed ? "Đã theo dõi" : "Theo dõi"}
+                      </button>
+                    </div>
+                    <div className="card__des">
+                      Ngủ một mình x Cô đơn trên sofa (Mashup Ngủ trên sofa)
+                      #short #beauty #girl
+                    </div>
+                  </div>
+                )}
+              </div>
+              {isLive && showLiveChat && (
+                <LiveChat setShowLiveChat={setShowLiveChat} />
               )}
-              <img src="muted.svg" alt="" className="card__speaker" />
-            </div>
-            {false && <div className="card__info">
-              <div className="card__user">
-                <img className="card__user-avatar" src="/Avatar.png" alt="" />
-                <div className="card__user-name">finDmusic</div>
-                <button
-                  className={followed ? "btn btn--gray" : "btn btn--white"}
-                  onClick={setFollowed}
-                >
-                  {followed ? "Đã theo dõi" : "Theo dõi"}
-                </button>
+              {isLove && <ShortStored />}
+              <div className="feature">
+                <div className="feature__group">
+                  <button className="feature__btn">
+                    <img src="/LoveIcon.svg" alt="" />
+                  </button>
+                  <p className="feature__number">1,1 N</p>
+                </div>
+                <div className="feature__group">
+                  <button
+                    className="feature__btn"
+                    onClick={() => {
+                      isLive ? setShowLiveChat(true) : setShowComment(true);
+                    }}
+                  >
+                    <img src="/Comment.svg" alt="" />
+                  </button>
+                  <p className="feature__number">123</p>
+                </div>
+                <div className="feature__group">
+                  <button className="feature__btn">
+                    <img src="/Save.svg" alt="" />
+                  </button>
+                  <p className="feature__number">Lưu</p>
+                </div>
+                <div className="feature__group">
+                  <button
+                    className="feature__btn"
+                    onClick={() => setShowShare(true)}
+                  >
+                    <img src="/Share.svg" alt="" />
+                  </button>
+                  <p className="feature__number">Chia sẻ</p>
+                </div>
+                <div className="feature__group">
+                  <button className="feature__btn">
+                    <img src="/Dot.svg" alt="" />
+                  </button>
+                </div>
               </div>
-              <div className="card__des">
-                Ngủ một mình x Cô đơn trên sofa (Mashup Ngủ trên sofa) #short
-                #beauty #girl
-              </div>
-            </div>}
-          </div>
-          {isLive && showLiveChat && (
-            <LiveChat setShowLiveChat={setShowLiveChat} />
-          )}
-          {isLove && <ShortStored />}
-          <div className="feature">
-            <div className="feature__group">
-              <button className="feature__btn">
-                <img src="/LoveIcon.svg" alt="" />
-              </button>
-              <p className="feature__number">1,1 N</p>
             </div>
-            <div className="feature__group">
-              <button
-                className="feature__btn"
-                onClick={() => {
-                  isLive ? setShowLiveChat(true) : setShowComment(true);
-                }}
-              >
-                <img src="/Comment.svg" alt="" />
-              </button>
-              <p className="feature__number">123</p>
-            </div>
-            <div className="feature__group">
-              <button className="feature__btn">
-                <img src="/Save.svg" alt="" />
-              </button>
-              <p className="feature__number">Lưu</p>
-            </div>
-            <div className="feature__group">
-              <button
-                className="feature__btn"
-                onClick={() => setShowShare(true)}
-              >
-                <img src="/Share.svg" alt="" />
-              </button>
-              <p className="feature__number">Chia sẻ</p>
-            </div>
-            <div className="feature__group">
-              <button className="feature__btn">
-                <img src="/Dot.svg" alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
-      ))}
+          ))}
+        </OwlCarousel>
+      </div>
+
       <div className="short-video__redirect-btn">
         <img src="/ArrowUp.svg" alt="" />
         <img src="/ArrowLight.svg" alt="" />

@@ -8558,6 +8558,11 @@ react-is@^18.0.0, react-is@^18.2.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-owl-carousel2@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-owl-carousel2/-/react-owl-carousel2-0.3.0.tgz#8a4daec35c4bf7d682f39c3c17d309a1ad31d793"
+  integrity sha512-f6RYdNn7BD3npMfS7d88utPMfje8qsAKAftUtQ0F9imjvKHtTngP013mdqOcllsJ/75f4/uu2vA14kVBwUvEZA==
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"

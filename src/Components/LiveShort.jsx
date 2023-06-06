@@ -9,7 +9,7 @@ import ShortStored from "./ShortStored";
 import VideoJS from "./VideoJS";
 import videojs from "video.js";
 
-function ShortVideo() {
+function LiveShort() {
   const [showComment, setShowComment] = useState(false);
   const [showLiveChat, setShowLiveChat] = useState(false);
   const [showShare, setShowShare] = useState(false);
@@ -27,7 +27,6 @@ function ShortVideo() {
     const nextButton = document.querySelector(".short-video__btn--next");
     const preBtton = document.querySelector(".short-video__btn--pre");
 
-    // const setSlidePosi
     const slideTop = slides[0].getBoundingClientRect().height;
     const getSlidePosition = (slide, index) => {
       const numTop = slideTop * index;
@@ -36,7 +35,6 @@ function ShortVideo() {
     slides.forEach(getSlidePosition);
 
     const moveToSlide = (track, currentSlide, targetSlide) => {
-      // console.log("translateY(-cal(" + targetSlide.style.top + " + 40px))");
       track.style.transform = "translateY(-" + targetSlide.style.top + ")";
       currentSlide.classList.remove("current-slide");
       targetSlide.classList.add("current-slide");
@@ -100,8 +98,7 @@ function ShortVideo() {
     true,
     (ev) => {
       console.log(ev.key);
-      if (ev.key === " ")
-        document.querySelector(".short-video__btn--next").click();
+      if (ev.key === " ") return;
     },
     [],
     { eventOptions: { passive: true } }
@@ -207,4 +204,4 @@ function ShortVideo() {
   );
 }
 
-export default ShortVideo;
+export default LiveShort;

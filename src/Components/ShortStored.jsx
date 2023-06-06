@@ -29,7 +29,7 @@ function ShortStored() {
         </div>
       </div>
       <div className="list-short">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
           <div className="list-short__item" key={item}>
             <img src="VideoDemo.png" alt="video đã thích" />
             <h4 className="list-short__des">

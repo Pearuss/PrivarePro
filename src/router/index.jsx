@@ -2,6 +2,7 @@ import React from "react";
 import CommonLayout from "../Layout/CommonLayout";
 import ShortVideo from "../Components/ShortVideo";
 import Channel from "../Components/Channel";
+import LiveShort from "../Components/LiveShort";
 
 const normalRoutes = {
   path: "*",
@@ -21,7 +22,7 @@ const normalRoutes = {
     },
     {
       path: "live",
-      element: <ShortVideo />,
+      element: <LiveShort />,
     },
     {
       path: "yeu-thich",

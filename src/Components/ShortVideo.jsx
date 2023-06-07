@@ -11,6 +11,8 @@ import videojs from "video.js";
 
 import OwlCarousel from "react-owl-carousel2";
 
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
 function ShortVideo() {
   const [showComment, setShowComment] = useState(false);
   const [showLiveChat, setShowLiveChat] = useState(false);
@@ -26,6 +28,13 @@ function ShortVideo() {
     nav: true,
     rewind: true,
     autoplay: true,
+  };
+
+  const nextVideoHandler = () => {
+    document.querySelector(".owl-next").click();
+  };
+  const preVideoHandler = () => {
+    document.querySelector(".owl-prev").click();
   };
 
   //
@@ -81,6 +90,7 @@ function ShortVideo() {
   return (
     <div className="short-video ">
       <div className="test">
+        <div className="">eqweqwe</div>
         <OwlCarousel options={options}>
           {[1, 2, 3, 4].map((item) => (
             <div className="card item" key={item}>
@@ -133,7 +143,7 @@ function ShortVideo() {
               <div className="feature">
                 <div className="feature__group">
                   <button className="feature__btn">
-                    <img src="/LoveIcon.svg" alt="" />
+                    <img src="/Heart.svg" alt="" />
                   </button>
                   <p className="feature__number">1,1 N</p>
                 </div>
@@ -170,13 +180,22 @@ function ShortVideo() {
                 </div>
               </div>
             </div>
+
+            // <div className="item">
+            //   <img
+            //     // className="item"
+            //     src="ChannelImage.png"
+            //     alt=""
+            //     style={{ objectFit: "cover", height: "100%", width: "100%" }}
+            //   />
+            // </div>
           ))}
         </OwlCarousel>
       </div>
 
       <div className="short-video__redirect-btn">
-        <img src="/ArrowUp.svg" alt="" />
-        <img src="/ArrowLight.svg" alt="" />
+        <img src="/ArrowUp.svg" alt="" onClick={preVideoHandler} />
+        <img src="/ArrowLight.svg" alt="" onClick={nextVideoHandler} />
       </div>
       <CommentDialog open={showComment} setOpen={setShowComment} />
       <ShareDialog open={showShare} setOpen={setShowShare} />

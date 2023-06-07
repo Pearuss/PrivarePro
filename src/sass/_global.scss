@@ -1,14 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
+.owl-carousel{
+  transform: rotate(90deg);
+  margin-top:100px;
+} 
+.item{
+  transform: rotate(-90deg);
+}
 
 .test {
   width: 100%;
-  margin-top: 300px;
-  min-height: 400px;
+  // margin-top: 300px;
+  // min-height: 400px;
   // background-color: red;
-  margin-left: 50vw;
-  transform: translateX(-50%);
+  // margin-left: 50vw;
+  // transform: translateX(-50%);
   background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   // img {
   //   width: 200px;
   //   height: 300px;
@@ -16,18 +26,18 @@
   // }
 }
 
-.owl-dots {
-  display: none;
-}
+// .owl-dots {
+//   display: none;
+// }
 
-.owl-carousel {
-  transform: rotate(90deg);
-  // background-color: red;
+// .owl-carousel {
+//   transform: rotate(90deg);
+//   // background-color: red;
 
-  .item {
-    transform: rotate(-90deg);
-  }
-}
+//   .item {
+//     transform: rotate(-90deg);
+//   }
+// }
 
 body {
   // overflow-x: hidden;
@@ -118,6 +128,9 @@ body {
 .disabled-link {
   pointer-events: none;
 }
+.owl-nav {
+  opacity: 0;
+}
 
 .player {
   width: 507px;
@@ -125,9 +138,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  .vjs-has-started .vjs-control-bar {
-    // opacity: 0;
-  }
+  
   .video-js.vjs-fluid {
     border-radius: 24px;
   }

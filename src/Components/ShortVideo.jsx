@@ -9,7 +9,9 @@ import ShortStored from "./ShortStored";
 import VideoJS from "./VideoJS";
 import videojs from "video.js";
 
-import OwlCarousel from "react-owl-carousel2";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 function ShortVideo() {
   const [showComment, setShowComment] = useState(false);
@@ -28,7 +30,12 @@ function ShortVideo() {
     autoplay: true,
   };
 
-  //
+  const nextVideoHandler = () => {
+    document.querySelector(".owl-next").click();
+  };
+  const preVideoHandler = () => {
+    document.querySelector(".owl-prev").click();
+  };
 
   const playerRef = React.useRef(null);
 
@@ -81,7 +88,14 @@ function ShortVideo() {
   return (
     <div className="short-video ">
       <div className="test">
-        <OwlCarousel options={options}>
+        <OwlCarousel
+          className="owl-theme"
+          loop
+          margin={10}
+          items={1}
+          nav={true}
+          dots={false}
+        >
           {[1, 2, 3, 4].map((item) => (
             <div className="card item" key={item}>
               <div className="card__video">
@@ -175,8 +189,8 @@ function ShortVideo() {
       </div>
 
       <div className="short-video__redirect-btn">
-        <img src="/ArrowUp.svg" alt="" />
-        <img src="/ArrowLight.svg" alt="" />
+        <img src="/ArrowUp.svg" alt="" onClick={preVideoHandler} />
+        <img src="/ArrowLight.svg" alt="" onClick={nextVideoHandler} />
       </div>
       <CommentDialog open={showComment} setOpen={setShowComment} />
       <ShareDialog open={showShare} setOpen={setShowShare} />

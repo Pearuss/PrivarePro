@@ -38,7 +38,9 @@
   display: flex;
   align-items: flex-end;
   position: relative;
-  // max-width: 603px;
+  justify-content: center;
+  // right: 50%;
+  // background-color: red;
 
   &__header {
     .live-info {
@@ -61,10 +63,10 @@
 
   &__video {
     // max-width: 507px;
-    height: 900px;
-    width: 603px;
+    // height: 900px;
+    // width: 507px;
     // height: auto;
-    // background-color: red;
+    
 
     //
     // width: 507px;
@@ -105,6 +107,7 @@
     margin-left: 15px;
     padding: 0 12.5px;
     display: flex;
+    margin-top: auto;
     flex-direction: column;
     gap: 24px;
     &__group {

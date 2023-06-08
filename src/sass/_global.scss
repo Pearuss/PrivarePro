@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
+.owl-nav {
+  display: none;
+}
 body {
   // overflow-x: hidden;
   font-family: $primary_font;
@@ -8,6 +11,7 @@ body {
   color: white;
   background: $primary_bg;
 }
+
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
@@ -15,95 +19,267 @@ body {
   height: 100%;
 }
 
-.main {
-  display: flex;
-  &__page {
-    width: 100%;
-    flex: 1;
-    padding-top: 40px;
-  }
-}
-
-.container {
-  max-width: 1634px;
-  margin: 0 83px;
-}
 .btn {
   display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  padding: 4px 12px;
+  @include replace-font(500, 12px, 16px);
+  padding: 8px 16px;
   border: 0;
   outline: none;
-  border-radius: 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
   cursor: pointer;
-  &--white {
-    background-color: white;
-    color: black;
-  }
-  &--gray {
-    background: rgba(0, 0, 0, 0.25);
-    color: white;
+  min-width: 109px;
+  color: white;
+  &--red {
+    background: $red_bg;
   }
   &--blue {
-    color: white;
-    background-color: $blue_btn;
+    background: transparent;
+    color: #0294ff;
+    border: 1.5px solid #0294ff;
   }
-  &--red {
-    color: white;
-    background-color: $red_bg;
-  }
+
+  // &--blue {
+  //   color: white;
+  //   background-color: $blue_btn;
+  // }
+  // &--red {
+  //   color: white;
+  //   background-color: $red_bg;
+  // }
 }
+.menu-backdrop {
+  width: 260px;
+  height: 100%;
+  background-color: $primary_bg;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
 
-.common-dialog {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 44px 40px;
-  color: white;
+  overflow-y: auto;
+  &__close-btn {
+    margin: 12px 0 16px 16px;
+    cursor: pointer;
+  }
+  &-btn {
+    display: flex;
+    gap: 8px;
+    margin-left: 16px;
+  }
 
-  &__header {
+  &__home {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    @include replace-font(600, 14px);
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 8px 24px;
+    border-left: 4px solid #ec2227;
+  }
+
+  &__options {
+    margin: 8px;
+    .options__list {
+      li {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 8px 16px;
+        gap: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  &__info {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  &__sub {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
-  }
-
-  &__title {
-    @include replace-font(500, 24px, 33.6px);
+    padding: 8px 24px;
+    gap: 10px;
+    cursor: pointer;
   }
   &__footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 25px;
+    margin: 8px 16px;
     display: flex;
-    gap: 16px;
-    justify-content: end;
-    button {
-      min-width: 88px;
+    flex-direction: column;
+    gap: 4px;
+    &-head {
+      @include replace-font(600, 12px);
+    }
+    &-des {
+      @include replace-font(400, 12px, 22px);
+      span {
+        font-weight: 700;
+      }
+    }
+    &-number {
+      @include replace-font(500, 12px, 14.5px);
+      span {
+        font-weight: 700;
+      }
     }
   }
 }
 
-.disabled-link {
-  pointer-events: none;
+.menu-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px 16px;
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 3;
+  top: 0;
+
+  &__menuIcon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  &__searchIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    @include replace-font(500, 14px);
+    li {
+      list-style: none;
+    }
+  }
 }
 
+.taskbar {
+  margin-top: auto;
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h4 {
+      @include replace-font(500, 10px, 16px);
+    }
+  }
+}
+
+// body {
+//   // overflow-x: hidden;
+//   font-family: $primary_font;
+//   line-height: 24px;
+//   font-size: 16px;
+//   color: white;
+//   background: $primary_bg;
+// }
+// .wrapper {
+//   max-width: 1920px;
+//   margin: 0 auto;
+//   background: $primary_bg;
+//   height: 100%;
+// }
+
+// .main {
+//   display: flex;
+//   &__page {
+//     width: 100%;
+//     flex: 1;
+//     padding-top: 40px;
+//   }
+// }
+
+// .container {
+//   max-width: 1634px;
+//   margin: 0 83px;
+// }
+// .btn {
+//   display: inline-block;
+//   font-size: 16px;
+//   font-weight: 600;
+//   line-height: 24px;
+//   padding: 4px 12px;
+//   border: 0;
+//   outline: none;
+//   border-radius: 12px;
+//   cursor: pointer;
+//   &--white {
+//     background-color: white;
+//     color: black;
+//   }
+//   &--gray {
+//     background: rgba(0, 0, 0, 0.25);
+//     color: white;
+//   }
+//   &--blue {
+//     color: white;
+//     background-color: $blue_btn;
+//   }
+//   &--red {
+//     color: white;
+//     background-color: $red_bg;
+//   }
+// }
+
+// .common-dialog {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 40px;
+//   padding: 44px 40px;
+//   color: white;
+
+//   &__header {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+//     padding-bottom: 15px;
+//   }
+
+//   &__title {
+//     @include replace-font(500, 24px, 33.6px);
+//   }
+//   &__footer {
+//     border-top: 1px solid rgba(255, 255, 255, 0.1);
+//     padding-top: 25px;
+//     display: flex;
+//     gap: 16px;
+//     justify-content: end;
+//     button {
+//       min-width: 88px;
+//     }
+//   }
+// }
+
+// .disabled-link {
+//   pointer-events: none;
+// }
+
 .player {
-  width: 507px;
-  height: 700px !important;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  height: 100%;
 
   .vjs-has-started .vjs-control-bar {
     opacity: 0;
   }
-  .video-js.vjs-fluid {
-    border-radius: 24px;
-  }
-  .video-js .vjs-tech {
-    border-radius: 24px;
-  }
-  
+  // .video-js.vjs-fluid {
+  //   border-radius: 24px;
+  // }
+  // .video-js .vjs-tech {
+  //   border-radius: 24px;
+  // }
 }

@@ -1,32 +1,15 @@
 import React from "react";
-import CommonLayout from "../Layout/CommonLayout";
-import ShortVideo from "../Components/ShortVideo";
 import Channel from "../Components/Channel";
-import LiveShort from "../Components/LiveShort";
+import MobileLayout from "../Layout/MobileLayout";
+import Home from "../Components/Home";
 
 const normalRoutes = {
   path: "*",
-  element: <CommonLayout />,
+  element: <MobileLayout />,
   children: [
     {
       index: true,
-      element: <ShortVideo />,
-    },
-    {
-      path: "danh-cho-ban",
-      element: <ShortVideo />,
-    },
-    {
-      path: "dang-theo-doi",
-      element: <ShortVideo />,
-    },
-    {
-      path: "live",
-      element: <LiveShort />,
-    },
-    {
-      path: "yeu-thich",
-      element: <ShortVideo />,
+      element: <Home />,
     },
     {
       path: "profile",

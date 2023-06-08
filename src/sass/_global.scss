@@ -1,18 +1,27 @@
-// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 .owl-carousel {
   transform: rotate(90deg);
-  width: 900px;
-  // margin-top:100px;
-  position: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .owl-stage-outer {
     // overflow: unset;
-    width: 100%;
-    height: 100%;
+    width: 900px;
+    height: fit-content;
+    min-height: 1200px;
+    position: relative;
+    left: -150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // background-color: aqua;
   }
 
   .owl-item {
+    margin-top: auto;
+    margin-bottom: auto;
     img {
       width: unset;
     }
@@ -20,72 +29,30 @@
 }
 .item {
   transform: rotate(-90deg);
-  display: inline-block;
-  margin: 0 auto;
+  width: 100%;
+  // min-height: 1200px;
 }
 
 .player {
   width: 507px;
   height: 900px;
-  // position: relative;
-  // left: 50%;
-  // transform: translateX(-50%);
 
-  // .video-js.vjs-fluid {
-  //   border-radius: 24px;
-  // }
-  // .video-js .vjs-tech {
-  //   border-radius: 24px;
-  // }
-  
+  .video-js.vjs-fluid {
+    border-radius: 24px;
+  }
+  .video-js .vjs-tech {
+    border-radius: 24px;
+  }
+}
+.vjs-has-started .vjs-control-bar {
+  opacity: 0;
 }
 
 .video-js .vjs-tech {
   height: unset;
 }
 
-
-.test {
-  width: fit-content;
-  margin-top: -15px;
-  // background-color: antiquewhite;
-  // padding-left: auto;
-  // padding-right: auto;
-  // background-color: aqua;
-  // display: flex;
-  // align-items: center;
-  // margin-left: auto;
-  // margin-right: auto;
-  // justify-content: center;
-  // img {
-  //   width: 200px;
-  //   height: 300px;
-  //   object-fit: cover;
-  // }
-}
-.owl-stage-outer {
-  // background-color: aqua;
-  display: inline-block;
-  position: relative;
-  top: 24px;
-
-}
-
-// .owl-dots {
-//   display: none;
-// }
-
-// .owl-carousel {
-//   transform: rotate(90deg);
-//   // background-color: red;
-
-//   .item {
-//     transform: rotate(-90deg);
-//   }
-// }
-
 body {
-  // overflow-x: hidden;
   font-family: $primary_font;
   line-height: 24px;
   font-size: 16px;
@@ -174,6 +141,5 @@ body {
   pointer-events: none;
 }
 .owl-nav {
-  opacity: 0;
+  display: none;
 }
-

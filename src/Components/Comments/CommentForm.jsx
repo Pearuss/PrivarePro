@@ -16,7 +16,6 @@ function CommentForm() {
     setShowEmoji();
   });
   const pickEmoji = (e, { emoji }) => {
-    // console.log(inputValue);
     const ref = inputRef.current;
     ref.focus();
 

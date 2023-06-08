@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from "react";
-import LiveChat from "./LiveChat";
-import CommentDialog from "../Dialogs/CommentDialog";
 import ShareDialog from "../Dialogs/ShareDialog";
 import { useKeyboardEvent } from "@react-hookz/web/esm/useKeyboardEvent";
 import useToggle from "../hooks/useToggle";
-import { useLocation } from "react-router-dom";
-import ShortStored from "./ShortStored";
 import VideoJS from "./VideoJS";
 import videojs from "video.js";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import LiveChat from "./LiveChat";
 
-function ShortVideo() {
-  const [showComment, setShowComment] = useState(false);
+function ShortLive() {
+  const [showLiveChat, setShowLiveChat] = useState(true);
   const [showShare, setShowShare] = useState(false);
-  const [followed, setFollowed] = useToggle(true);
-
-  const location = useLocation();
-  const isLove = location.pathname === "/yeu-thich" || false;
+  const [followed, setFollowed] = useToggle(false);
 
   const nextVideoHandler = () => {
     document.querySelector(".owl-next").click();
@@ -95,9 +89,14 @@ function ShortVideo() {
                     onReady={handlePlayerReady}
                   />
                 </div>
-                {/* <div className="card__header">
-                  <img src="muted.svg" alt="" className="card__speaker" />
-                </div> */}
+                <div className="card__header">
+                  <div className="live-info">
+                    <button className="btn btn--red">TRỰC TIẾP</button>
+                    <img src="person-live.svg" alt="person view live" />
+                    <span>725</span>
+                  </div>
+                  {/* <img src="muted.svg" alt="" className="card__speaker" /> */}
+                </div>
                 {false && (
                   <div className="card__info">
                     <div className="card__user">
@@ -123,7 +122,8 @@ function ShortVideo() {
                   </div>
                 )}
               </div>
-              {isLove && <ShortStored />}
+              {showLiveChat && <LiveChat setShowLiveChat={setShowLiveChat} />}
+              {/* {true && <ShortStored />} */}
               <div className="feature">
                 <div className="feature__group">
                   <button className="feature__btn">
@@ -135,7 +135,7 @@ function ShortVideo() {
                   <button
                     className="feature__btn"
                     onClick={() => {
-                      setShowComment(true);
+                      setShowLiveChat(true);
                     }}
                   >
                     <img src="/Comment.svg" alt="" />
@@ -172,10 +172,9 @@ function ShortVideo() {
         <img src="/ArrowUp.svg" alt="" onClick={preVideoHandler} />
         <img src="/ArrowLight.svg" alt="" onClick={nextVideoHandler} />
       </div>
-      <CommentDialog open={showComment} setOpen={setShowComment} />
       <ShareDialog open={showShare} setOpen={setShowShare} />
     </div>
   );
 }
 
-export default ShortVideo;
+export default ShortLive;

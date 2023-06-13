@@ -1,9 +1,11 @@
 import { Backdrop } from "@mui/material";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import SearchTab from "../Components/SearchTab";
 
 const MobileLayout = () => {
   const [openMenu, setOpenMenu] = useState(true);
+  const [showSearchTab, setShowSearchTab] = useState(false);
 
   const menuOptions = [
     {
@@ -95,6 +97,7 @@ const MobileLayout = () => {
           </div>
         </div>
       </Backdrop>
+      {showSearchTab && <SearchTab setShowSearchTab={setShowSearchTab} />}
 
       <div className="menu-bar">
         <img
@@ -107,7 +110,12 @@ const MobileLayout = () => {
           <li>Dành cho bạn</li>
           <li>Đang theo dõi</li>
         </ul>
-        <img src="/Search.svg" alt="" className="menu-bar__searchIcon" />
+        <img
+          src="/Search.svg"
+          alt=""
+          className="menu-bar__searchIcon"
+          onClick={() => setShowSearchTab(true)}
+        />
       </div>
       <Outlet />
       <div className="taskbar">

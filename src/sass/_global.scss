@@ -3,6 +3,19 @@
 .owl-nav {
   display: none;
 }
+
+.player {
+  .vjs-has-started .vjs-control-bar {
+    opacity: 0;
+  }
+  // .video-js.vjs-fluid {
+  //   border-radius: 24px;
+  // }
+  // .video-js .vjs-tech {
+  //   border-radius: 24px;
+  // }
+}
+
 body {
   // overflow-x: hidden;
   font-family: $primary_font;
@@ -268,18 +281,3 @@ body {
 // .disabled-link {
 //   pointer-events: none;
 // }
-
-.player {
-  width: 100%;
-  height: 100%;
-
-  .vjs-has-started .vjs-control-bar {
-    opacity: 0;
-  }
-  // .video-js.vjs-fluid {
-  //   border-radius: 24px;
-  // }
-  // .video-js .vjs-tech {
-  //   border-radius: 24px;
-  // }
-}

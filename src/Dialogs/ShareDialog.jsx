@@ -50,11 +50,12 @@ export default function ShareDialog({ open, setOpen }) {
       onClose={handleClose}
       sx={{
         ".MuiPaper-root": {
-          height: "348px",
-          minWidth: "720px",
+          height: "295px",
+          minWidth: "100vw",
           background: "#13151f",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
-          borderRadius: "24px",
+          position: "absolute",
+          bottom: "0",
+          margin: "0",
         },
       }}
     >
@@ -75,15 +76,6 @@ export default function ShareDialog({ open, setOpen }) {
               <p className="share__text">{item.text}</p>
             </div>
           ))}
-        </div>
-        <div className="share__link">
-          <input
-            type="text"
-            className="share__input"
-            value={"https://mobion.vn/shortkdjagaiqdjto3t?fea=s"}
-            disabled
-          />
-          <button className="btn btn--blue">Sao chép</button>
         </div>
       </div>
     </Dialog>

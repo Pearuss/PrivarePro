@@ -22,11 +22,13 @@ export default function CommentDialog({ open, setOpen }) {
       onClose={handleClose}
       sx={{
         ".MuiPaper-root": {
-          height: "calc(100% - 200px)",
-          minWidth: "720px",
+          height: "80vh",
+          minWidth: "100vw",
           background: "#13151f",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
-          borderRadius: "24px",
+          position: "absolute",
+          bottom: "0",
+          margin: "0",
+          borderRadius: "12px 12px 0 0",
         },
       }}
     >

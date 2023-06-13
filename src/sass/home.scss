@@ -1,0 +1,22 @@
+.home {
+  &__feature {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    // background-color: $purple_underline;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 4px;
+    &__group {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 4px;
+    }
+    &__btn {
+        background-color: transparent;
+        border: none;
+    }
+  }
+}

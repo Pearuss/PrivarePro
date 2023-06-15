@@ -23,7 +23,7 @@ function SearchTab({ setShowSearchTab }) {
         </div>
         <div className="search-tab__text">Tìm kiếm</div>
       </div>
-      <ul className="search-tab__tabs">
+      {inputText !== "" && <ul className="search-tab__tabs">
         <li
           className="search-tab__tabs-item"
           style={{ borderBottom: "2px solid #EC2227" }}
@@ -40,7 +40,7 @@ function SearchTab({ setShowSearchTab }) {
         <li className="search-tab__tabs-item" onClick={() => setTab("tags")}>
           HashTag
         </li>
-      </ul>
+      </ul>}
       {inputText === "" ? (
         <div className="search-tab__result">
           <div className="search-tab__history">

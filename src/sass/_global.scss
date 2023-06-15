@@ -3,6 +3,46 @@
 .owl-nav {
   display: none;
 }
+// .owl-carousel {
+//   transform: rotate(180deg);
+// }
+// .owl-carousel {
+//   transform: rotate(90deg);
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+
+//   .owl-stage-outer {
+//     // overflow: unset;
+//     width: 900px;
+//     height: fit-content;
+//     min-height: 1200px;
+//     position: relative;
+//     left: -150px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     // background-color: aqua;
+//   }
+
+//   .owl-item {
+//     margin-top: auto;
+//     margin-bottom: auto;
+//     img {
+//       width: unset;
+//     }
+//   }
+// }
+// .item {
+//   transform: rotate(-90deg);
+//   width: 100%;
+//   min-height: 1200px;
+// }
+
+// .player__item {
+//   height: calc(100vh - 56px);
+//   transform: rotate(-90deg);
+// }
 
 .player {
   .vjs-has-started .vjs-control-bar {
@@ -14,7 +54,12 @@
   // .video-js .vjs-tech {
   //   border-radius: 24px;
   // }
+  width: 100%;
+  height: 100%;
 }
+// .vjs-tech {
+
+// }
 
 body {
   // overflow-x: hidden;
@@ -63,12 +108,10 @@ body {
 }
 .menu-backdrop {
   width: 260px;
-  height: 100%;
+  height: 100vh;
   background-color: $primary_bg;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 4;
+  z-index: 10;
+  color: white;
 
   overflow-y: auto;
   &__close-btn {
@@ -173,7 +216,13 @@ body {
 }
 
 .taskbar {
-  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  // margin-top: auto;
+  width: 100%;
+  z-index: 2;
+  color: white;
   &__list {
     display: flex;
     align-items: center;
@@ -185,9 +234,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+
+    img {
+      cursor: pointer;
+      opacity: 0.4;
+    }
 
     h4 {
       @include replace-font(500, 10px, 16px);
+      opacity: 0.4;
     }
   }
 }

@@ -19,10 +19,10 @@ export const VideoJS = (props) => {
       const player = (playerRef.current = videojs(videoElement, options, () => {
         onReady && onReady(player);
       }));
-      player.aspectRatio('5:9');
-      player.fluid(true);
-      player.fill(false);
-      player.responsive(true);
+      // player.aspectRatio('5:9');
+      // player.fluid(true);
+      // player.fill(true);
+      // player.responsive(true);
 
       // You could update an existing player in the `else` block here
       // on prop change, for example:
@@ -50,7 +50,7 @@ export const VideoJS = (props) => {
     <div data-vjs-player>
       <div
         ref={videoRef}
-        className="vjs-layout-large"
+        // className="vjs-layout-large"
       />
     </div>
   );

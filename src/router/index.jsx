@@ -1,33 +1,42 @@
 import React from "react";
-import Channel from "../Components/Channel";
 import MobileLayout from "../Layout/MobileLayout";
 import Home from "../Components/Home";
+import Profile from "../Components/Profile";
+import Love from "../Components/Love";
 
-const normalRoutes = {
-  path: "*",
-  element: <MobileLayout />,
-  children: [
-    {
-      index: true,
-      element: <Home />,
-    },
-    {
-      path: "profile",
-      element: <Channel />,
-      //   children: [
-      //     {
-      //       path: "",
-      //       element: <ProfilePage />,
-      //     },
-      //   ],
-    },
-    // {
-    //   path: "unauthorized",
-    //   element: <UnauthorizePage />,
-    // },
-  ],
-};
+const normalRoutes = [
+  {
+    path: "/",
+    element: <MobileLayout showMenuBar={true} />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "/profile",
+    element: <MobileLayout />,
+    children: [
+      {
+        index: true,
+        element: <Profile />,
+      },
+    ],
+  },
+  {
+    path: "/love",
+    element: <MobileLayout />,
+    children: [
+      {
+        index: true,
+        element: <Love />,
+      },
+    ],
+  },
+];
 
-const routes = [normalRoutes];
+const routes = normalRoutes;
 
 export default routes;

@@ -1,4 +1,6 @@
 .home {
+  width: 100%;
+  min-height: calc(100vh - 56px);
   &__feature {
     position: absolute;
     bottom: 0;
@@ -15,8 +17,9 @@
       gap: 4px;
     }
     &__btn {
-        background-color: transparent;
-        border: none;
+      background-color: transparent;
+      border: none;
     }
   }
+
 }

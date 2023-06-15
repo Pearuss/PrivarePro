@@ -10,6 +10,7 @@ function Player() {
     controls: true,
     responsive: true,
     liveui: true,
+    fill: true,
     fluid: true,
     sources: [
       {

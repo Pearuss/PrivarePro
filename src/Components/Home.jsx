@@ -48,14 +48,14 @@ function Home() {
   };
   return (
     <div className="home">
-      <div className="player">
-        {/* <OwlCarousel options={options}>
+      {/* <OwlCarousel options={options}>
           {[1, 2, 3, 4, 5].map((item) => (
             <div className="item" key={item}>
               <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
             </div>
           ))}
         </OwlCarousel> */}
+      <div className="player">
         <OwlCarousel
           className="owl-theme"
           loop
@@ -65,7 +65,7 @@ function Home() {
           dots={false}
         >
           {[1, 2, 3, 4, 5].map((item) => (
-            <div className="item" key={item}>
+            <div className="player__item" key={item}>
               <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
 
               <div className="home__feature">
@@ -115,9 +115,6 @@ function Home() {
             </div>
           ))}
         </OwlCarousel>
-        {/* <div className="item">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div> */}
       </div>
       <CommentDialog open={showComment} setOpen={setShowComment} />
       <ShareDialog open={showShare} setOpen={setShowShare} />

@@ -145,7 +145,7 @@ const Comment = ({
             />
           </Tooltip>
 
-          <img src="Liked.svg" alt="" />
+          <img src="HeartGray.svg" alt="" />
           <span>12</span>
         </div>
       </div>
